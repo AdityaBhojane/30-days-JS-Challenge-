@@ -38,7 +38,6 @@ console.log(Value)
 // Task 6   declare a value using const and reassign it and observe the error
 
 const mobile = 'iphone';
-// mobile = 'google'
-// console.log(mobile) // error
+mobile = 'google'
+console.log(mobile) // error
 
-// task 
