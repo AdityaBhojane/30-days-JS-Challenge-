@@ -77,7 +77,6 @@ function hofPractice(fnc1, fnc2, value){
     const result2 = fnc1(value)
     return fnc2(result2)
 }
-
 const fnc1 = (value)=> value+1;
 const fnc2 = (result2)=> result2 + 10;
 console.log(hofPractice(fnc1,fnc2,10))
