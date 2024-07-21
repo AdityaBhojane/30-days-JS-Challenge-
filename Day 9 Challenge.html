@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <p id="para">Java</p>
+    <div class="color" style="height: 100px; width: 100px;">
+    </div>
+    <ul>
+        <li id="dayOne">day 1</li>
+        <li>day 2</li>
+        <li id="dayFour" >day 4</li>
+        <li>day 5</li>
+        <li>day 6</li>
+    </ul>
+    <img id="image" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/71/94/bf/7194bfbc-2807-5792-242d-3532dba866c9/TwitchAppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/230x0w.webp" alt="linkedin" >
+    <div>
+        <button>change paragraph</button>
+        <p class="info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, maxime!</p>
+    </div>
+
+</body>
+<script>
+    // task 1 - use textContent
+    const paragraph = document.getElementById("para");
+    paragraph.textContent = 'JavaScript';
+
+
+    // task 2 - change background using class selector
+    const box = document.getElementsByClassName("color");
+    box[0].style.backgroundColor = "red";
+
+
+    // task 3 - create element and append
+    const div = document.createElement("div");
+    div.textContent = "This Div created using DOM";
+    document.body.appendChild(div)
+
+
+    // task 4 - create li and append
+    const li = document.createElement("li");
+    li.appendChild(document.createTextNode("day 3 (using dom)"));
+    const ul = document.getElementsByTagName("ul");
+    ul[0].appendChild(li)
+
+
+    // task 5 - select and remove element
+    const day = document.getElementById("dayOne")
+    day.remove()
+
+
+    // task 6 - remove lastChild of html element
+    ul[0].removeChild(ul[0].lastChild);
+    console.log(ul)
+
+
+    //task 7 - change src of image tag
+    const image = document.getElementById("image");
+    image.src = "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/d8/94/7ad8940a-0ca8-9d5d-6d8a-3d97ebe66ac5/AppIcon-0-0-1x_U007epad-0-85-220.png/146x0w.webp"
+
+
+    // task 8 - remove CSS class form HTML
+    const dayFour = document.getElementById("dayFour");
+    dayFour.setAttribute("class","chai")
+    // dayFour.removeAttribute("class","chai")
+
+
+    // task 9 - event to change paragraph
+    const btn = document.querySelector('button')
+    const info = document.querySelector('.info')
+    btn.addEventListener("click",()=>{
+        info.innerHTML = "chai aur code"
+    })
+
+
+    // task 10 - mouseover event 
+    btn.addEventListener("mouseover",()=>{
+        btn.style.border = "2px solid red"
+    })
+
+</script>
+</html>
