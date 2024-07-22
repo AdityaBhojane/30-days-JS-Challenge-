@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Challenge</title>
+</head>
+<style>
+    .visibility{
+        opacity: 0;
+    }
+    .bgChanger{
+        height: 200px; 
+        width: 200px; 
+        border: 2px solid #000000;
+    }
+</style>
+<body>
+    <button id="btn">change text</button>
+    <p class="para">chai aur code - </p>
+    <img class="visibility" id="logo" src="data:image/png;base64,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" alt="logo">
+    
+    <div class="bgChanger">
+
+    </div>
+
+    <input id="keyEvent" type="text">
+
+    <form id="form" action="#">
+        <input type="text">
+        <input type="button" value="submit">
+    </form>
+
+
+    <!-- github -->
+    <div class="activity4">
+        <form action="#" method="post">
+          First Name: <input type="text" name="firstName" id="firstName" /><br />
+          Email: <input type="email" name="email" id="email" /><br />
+          Password: <input type="password" name="password" /><br />
+          State:
+          <select name="state">
+            <option value="CG">Chhatisargh</option>
+            <option value="UP">Uttar Pradesh</option>
+            <option value="MP">Madhya Pradesh</option></select
+          ><br />
+          <input type="submit" value="Register" /><br />
+          You are from <span>Chhatisargh </span>
+        </form>
+      </div>
+      <hr />
+      <div class="activity5">
+        Qualifications:
+        <ul>
+          <li>MCA - HBTI Kanpur</li>
+          <li>BSc - Computer Sci, Math</li>
+          <li>Intermediate - CBSE Board</li>
+          <li>High School - CBSE Board</li>
+        </ul>
+        <button>Add New</button>
+      </div>
+</body>
+<script>
+    // task 1
+    const btn = document.getElementById("btn")
+    const para = document.getElementsByClassName("para")
+    btn.addEventListener("click",()=>{
+        para[0].textContent = "chai aur code - hitesh sir"
+    })
+    
+    
+    // task 2
+    const logo = document.getElementById("logo")
+    logo.addEventListener("dblclick",()=>{
+        logo.classList.toggle("visibility")
+    })
+    
+    
+    // task 3
+    const bgChanger = document.getElementsByClassName("bgChanger")
+    bgChanger[0].addEventListener("mouseover",()=>{
+        bgChanger[0].style.backgroundColor = "green"
+    })
+ 
+
+    // task 4
+    bgChanger[0].addEventListener("mouseout",()=>{
+        bgChanger[0].style.backgroundColor = ""
+    })
+
+
+    // task 5
+    const keyEvent = document.getElementById("keyEvent");
+    keyEvent.addEventListener("keydown",(e)=>{
+        console.log(e.code)
+    })
+    // task 6
+    keyEvent.addEventListener("keyup",(e)=>{
+        para[0].textContent = e.key
+    })
+
+
+
+    // task 7
+    const form = document.getElementById("form");
+    form.addEventListener("submit",(e)=>{
+        e.preventDefault()
+        console.log(form.firstElementChild.value)
+    })
+
+
+    // Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+    const state = document.querySelector(".activity4 form > select[name=state]");
+    state.addEventListener("change", (e) => {
+    console.log(e.target);
+    const span = document.querySelector(".activity4 form span");
+    span.innerHTML = e.target.options[e.target.selectedIndex].text;
+    });
+
+    //!Activity 5: Event Delegation
+    // Task 9: Add a click event to a list that logs the text content of the clicked list item using event delegation.
+    const qualificationList = document.querySelector(".activity5  >  ul");
+    qualificationList.addEventListener("click", (event) => {
+    const li = event.target;
+    console.log(`You clicked: ${li.innerText}`);
+    });
+    // Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
+    // Dynamically add child element
+    const addNewBtn = document.querySelector(".activity5  >  button");
+    addNewBtn.addEventListener("click", () => {
+    const li = document.createElement("li");
+    li.textContent = "9th - CBSE Board";
+    qualificationList.appendChild(li);
+    });
+
+    qualificationList.addEventListener("mouseover", (event) => {
+    const li = event.target;
+    li.style.backgroundColor = "#e5ca4e";
+    });
+    qualificationList.addEventListener("mouseout", (event) => {
+    const li = event.target;
+    li.style.backgroundColor = "transparent";
+    });
+</script>
+</html>
